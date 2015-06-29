@@ -67,3 +67,5 @@ print "Scale = " , m.scale()
 render_to_file(m, map_output)
 
 im = Image.open('map.png')
+im.format = "PNG"
+im.show()
