@@ -12,11 +12,13 @@ To render a map of an area without coordinates, like a city, landmark, or colleg
 
 ![Pittsburgh](/samples/map_pittsburgh.jpg)
 
-	python osm_render_tool.py search "Harvard"
-
 	python osm_render_tool.py search "Times Square"
 
 ![Times Square](/samples/map_manhattan.jpg)
+
+	python osm_render_tool.py search "Harvard"
+
+![Harvard](/samples/map_harvard.jpg)
 
 The search funtion can handle most well known places and landmarks and can deal with misspellings.
 
@@ -30,5 +32,4 @@ To render a map constrained by maximum and minimum latitudes and longitudes, use
 
 **Technical Requirements**
 - mapnik
-- urllib2
 - PIL
