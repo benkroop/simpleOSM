@@ -15,7 +15,7 @@ def parseInput():
 			minLat, maxLat, minLon, maxLon = str2coords(searchStr)
 			return minLat, maxLat, minLon, maxLon
 		except:
-			print "Could not find '" + searchStr + "'. Try rephrasing or using coordinate input: python osm_render_tool.py coords 'minLat, maxLat, minLon, maxLon'"
+			sys.exit("Could not find '" + searchStr + "'. Try rephrasing or using coordinate input: \npython osm_render_tool.py coords 'minLat, maxLat, minLon, maxLon'")
 	## To render a map with user-defined lat/lon edges
 	elif 'coords' in sys.argv:
 		coords = sys.argv[sys.argv.index('coords') + 1].split(',')
@@ -26,10 +26,9 @@ def parseInput():
 			maxLon = float(coords[3])
 			return minLat, maxLat, minLon, maxLon
 		else:
-			print "Incorrect number of coordinates. Format is: python osm_render_tool.py coords 'minLon, maxLat, maxLon, minLat'"
+			sys.exit("Error: Incorrect number of coordinates. \nFormat is: python osm_render_tool.py coords 'minLon, maxLat, maxLon, minLat'")
 	else:
-		print "Usage: python osm_render_tool.py search 'query' OR python osm_render_tool.py coords 'minLat, maxLat, minLon, maxLon'"
-		return -1
+		sys.exit("Error: No command recognized. \nUsage: python osm_render_tool.py search 'query' OR python osm_render_tool.py coords 'minLat, maxLat, minLon, maxLon'")
 
 def downloadMaps(minLat, maxLat, minLon, maxLon):
 	url = 'http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=' + str(minLon) + ',' + str(minLat) + ',' + str(maxLon) + ',' + str(maxLat) + ']'
@@ -69,3 +68,4 @@ render_to_file(m, map_output)
 im = Image.open('map.png')
 im.format = "PNG"
 im.show()
+
