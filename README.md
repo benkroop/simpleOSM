@@ -5,6 +5,7 @@ simpleOSM is a tool that downloads and renders a map from OpenStreetMaps. It can
 **Usage**
 
 *Search*
+
 To render a map of an area without coordinates, like a city, landmark, or college campus, use the "search" function:
 	
 	python osm_render_tool.py search "Pittsburgh"
